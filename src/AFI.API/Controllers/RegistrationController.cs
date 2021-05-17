@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AFI.API.Core.Services.Interface;
+using AFI.API.Model;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +13,15 @@ namespace AFI.API.Controllers
     [ApiController]
     public class RegistrationController : ControllerBase
     {
-        public RegistrationController()
-        {
+        private IRegistration _registration;
 
+        public RegistrationController(IRegistration registration)
+        {
+            _registration = registration;
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Register()
+        public async Task<ActionResult<int>> Register( Customer customerModel)
         {
             return null;
         }

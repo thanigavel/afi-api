@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AFI.Data.Entities\AFI.Data.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

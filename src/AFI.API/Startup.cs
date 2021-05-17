@@ -1,15 +1,10 @@
+using AFI.API.MappingProfiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AFI.API
 {
@@ -26,6 +21,7 @@ namespace AFI.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddAutoMapper(x => x.AddProfile<MapProvider>(), typeof(Startup));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -39,7 +35,14 @@ namespace AFI.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
+            }
+
+            if (!env.IsProduction())
+            {
+                app.UseSwagger(c =>
+                {
+                    c.SerializeAsV2 = true;
+                });
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AFI.API v1"));
             }
 

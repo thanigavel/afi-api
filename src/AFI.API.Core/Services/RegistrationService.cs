@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AFI.API.Core.Services.Interface;
+using AFI.Data.Entities;
 using System.Threading.Tasks;
 
 namespace AFI.API.Core.Services
 {
-    class RegistrationService
+    public class RegistrationService : IRegistration
     {
+        public Task<bool> IsPolicyAlreadyRegistered(CustomerEntity customer)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
