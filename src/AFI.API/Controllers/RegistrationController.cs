@@ -29,7 +29,21 @@ namespace AFI.API.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Use this endpoint to register customer with policy reference number
+        /// </summary>
+        /// <param name="customerModel"></param>
+        /// <returns></returns>
+        /// <response code="200">Customer is registered with policy reference</response>
+        /// <response code="503">Request has not processed</response>
+        /// <response code="400">Policy has already registered</response>
+        /// <response code="500">Error Occurred</response>
+
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> Register(Customer customerModel)
         {
             try
