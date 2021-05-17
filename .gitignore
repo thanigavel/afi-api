@@ -40,3 +40,7 @@
 /src/AFI.API.Common/obj
 /src/AFI.API.Common/bin/Debug/net5.0
 /src/.vs/AFI.API/DesignTimeBuild
+/src/AFI.API.Core.Tests1/bin/Debug/.netcoreapp,version=v5.0
+/src/AFI.API.Core.Tests1/obj
+/src/AFI.API.Tests/bin/Debug/.netcoreapp,version=v5.0
+/src/AFI.API.Tests/obj
