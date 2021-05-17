@@ -32,3 +32,8 @@
 /src/AFI.Data.Entities/obj/AFI.Data.Entities.csproj.nuget.g.targets
 /src/AFI.Data.Entities/obj/AFI.Data.Entities.csproj.nuget.g.props
 /src/AFI.Data.Entities/obj/AFI.Data.Entities.csproj.nuget.dgspec.json
+/src/AFI.API/bin/Debug/net5.0
+/src/AFI.API.Core/bin/Debug/net5.0
+/src/AFI.API.Model/bin/Debug/net5.0
+/src/AFI.Data/bin/Debug/net5.0
+/src/AFI.Data.Entities/bin/Debug/net5.0

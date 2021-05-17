@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace AFI.API.Controllers
 {
-    public class RegistrationController : Controller
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RegistrationController : ControllerBase
     {
-        public IActionResult Index()
+        public RegistrationController()
         {
-            return View();
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> Register()
+        {
+            return null;
         }
     }
 }
