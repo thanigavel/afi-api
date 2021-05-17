@@ -3,3 +3,8 @@
 ################################################################################
 
 /src/AFI.API/obj/Debug/net5.0
+/src/AFI.API/obj/project.assets.json
+/src/AFI.API/obj/AFI.API.csproj.nuget.g.targets
+/src/AFI.API/obj/AFI.API.csproj.nuget.g.props
+/src/AFI.API/obj/AFI.API.csproj.nuget.dgspec.json
+/src/.vs/AFI.API/v16
