@@ -1,9 +1,12 @@
+using AFI.API.Core.Services;
+using AFI.API.Core.Services.Interface;
 using AFI.API.MappingProfiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace AFI.API
@@ -20,8 +23,11 @@ namespace AFI.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IRegistration, RegistrationService>();
             services.AddAutoMapper(x => x.AddProfile<MapProvider>(), typeof(Startup));
+            services.AddSingleton<ILogger>(
+                svc => svc.GetRequiredService<ILogger<Startup>>()
+                );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
