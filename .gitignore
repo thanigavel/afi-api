@@ -37,3 +37,5 @@
 /src/AFI.API.Model/bin/Debug/net5.0
 /src/AFI.Data/bin/Debug/net5.0
 /src/AFI.Data.Entities/bin/Debug/net5.0
+/src/AFI.API.Common/obj
+/src/AFI.API.Common/bin/Debug/net5.0
