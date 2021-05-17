@@ -1,4 +1,5 @@
-﻿using AFI.API.Core.Services.Interface;
+﻿using AFI.API.Core.ServiceModels;
+using AFI.API.Core.Services.Interface;
 using AFI.API.Model;
 using AFI.Data.Entities;
 using AutoMapper;
@@ -29,13 +30,19 @@ namespace AFI.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Register( Customer customerModel)
+        public async Task<ActionResult<int>> Register(Customer customerModel)
         {
             try
             {
-                CustomerEntity customer = _mapper.Map<CustomerEntity>(customerModel);
+                var customer = _mapper.Map<CustomerServiceModel>(customerModel);
 
-                return await _registration.Register(customer);
+                var result =  await _registration.Register(customer);
+
+                if (result == null)  return this.StatusCode(StatusCodes.Status500InternalServerError, "Error Occurred");
+
+                if (result.Successful) return Ok(result.Result);
+
+                return BadRequest(result.ErrorMessage);
             }
             catch(Exception ex)
             {

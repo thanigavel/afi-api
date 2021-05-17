@@ -1,11 +1,10 @@
-﻿using AFI.Data.Entities;
-using Microsoft.AspNetCore.Mvc;
+﻿using AFI.API.Core.ServiceModels;
 using System.Threading.Tasks;
 
 namespace AFI.API.Core.Services.Interface
 {
     public interface IRegistration
     {
-        Task<ActionResult<int>> Register(CustomerEntity customer);
+        Task<Outcome<int>> Register(CustomerServiceModel customer);
     }
 }

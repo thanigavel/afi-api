@@ -1,6 +1,8 @@
 ﻿using AFI.API.Common.Constants;
+using AFI.API.Common.ValidationProvider;
 using System;
 using System.ComponentModel.DataAnnotations;
+using TanvirArjel.CustomValidation.Attributes;
 
 namespace AFI.API.Model
 {
@@ -19,9 +21,12 @@ namespace AFI.API.Model
         public string PolicyReference { get; set; }
 
         [DataType(DataType.Date)]
+        [MinAge(Constants.MINIMUMAGEINYEARS, 0, 0, ErrorMessage = "Minimum age should be 18 years")]
+        [RequiredIfFieldIsEmpty("EmailAddress", ErrorMessage = "Either DoB or EmailAddress field must be provided")]
         public DateTime DoB { get; set; }
 
         [RegularExpression(Constants.EMAILADDRESSFORMAT)]
+        [RequiredIfFieldIsEmpty("DoB", ErrorMessage = "Either DoB or EmailAddress field must be provided")]
         public string EmailAddress { get; set; }
     }
 }
